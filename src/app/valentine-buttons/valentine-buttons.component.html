@@ -1,0 +1,23 @@
+<link href="https://fonts.cdnfonts.com/css/romantic" rel="stylesheet">
+                
+<div *ngIf="!showLoveText; else loveTextDiv" style="text-align: center; margin-top: 100px;">
+    <h2 style="margin-top: 500px;">Will you be my valentine?</h2>
+    <div style="margin-top: 50px;">
+      <button #noButton (click)="onNoClick()" style="background-color: red; font-size: 40px; color: white;">
+        {{ noButtonText }}
+      </button>
+      <button #yesButton (click)="onYesClick()" style="background-color: green; color: white; font-size: {{yesButtonSize}}px;" id="yesButton">
+        Yes
+      </button>
+    </div>
+</div>
+  
+<ng-template #loveTextDiv>
+    <div *ngIf="showLoveText" style="text-align: center; margin-top: 400px; font-size: 1px;">
+      <h3 style="color: white;">Happy Valentines Day!</h3>
+      <h3> I love you</h3>
+    </div>
+    <div *ngIf="showGif" style="text-align: center; margin-top: 1px; position: relative; z-index: 1;">
+      <img [src]="gifUrl" alt="Valentine's Day GIF">
+    </div>
+</ng-template>
